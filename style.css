@@ -1,0 +1,31 @@
+#prout {
+    font-size: 500px;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    margin: 0 auto;
+    text-align: center;
+}
+
+div {
+    background-color: rgb(255, 255, 255);
+    border: 1px solid black;
+    width: 100px;
+    height: 100px;
+    margin: 30px;
+    border-radius: 100px;
+}
+
+section {
+    border: 2px solid black;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 50%;
+    margin:0 auto;
+}
+h1 {
+    margin: 50px auto;
+    text-align: center;
+    border: 2px solid black;
+    padding: 5px;
+    width: 50%;
+}
