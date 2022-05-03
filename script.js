@@ -101,8 +101,19 @@ function newMole() {
 	}	
 	circle[red].addEventListener("click", hidden)
 	circle[red].addEventListener("click", increaseScore)
+
+	
 }
 setInterval(newMole, 1000)
+if (score > 10) {
+	setInterval(newMole, 700)
+}
+if (score > 20) {
+	setInterval(newMole, 300)
+}
+if (score > 50) {
+	setInterval(newMole, 100)
+}
 
 
 // FONCTION LAPIN //
