@@ -72,39 +72,65 @@ for (let i = 0; i < 12; i++) {
 	section.appendChild(div)
 }
 
+let black = 0
+let score = 0
 
-let previousCircle = 0
-
-
+// FONCTION TAUPE //
 function newMole() {
 
 	let circle = document.getElementsByTagName("div")
-	circle[previousCircle].style.backgroundColor = "white"
-
-	let randCircle = Math.floor(Math.random() * circle.length)
-	circle[randCircle].style.backgroundColor = "red"
-	previousCircle = randCircle
-
+	circle[black].style.backgroundColor = "black"
+	
+	let red = Math.floor(Math.random() * circle.length)
+	circle[red].style.backgroundColor = "red"
+	black = red
+	
 	function hidden() {
 		let circle = document.getElementsByTagName("div")
-		circle[randCircle].style.backgroundColor = "white"
+		circle[red].style.backgroundColor = "black"
 	}
 
 	function displayScore(num) {
 		document.querySelector("b").innerHTML = num ;
 	}
+		
+	function increaseScore() {
+		score++
+		displayScore(score)
+		console.log(score)	
+	}	
+	circle[red].addEventListener("click", hidden)
+	circle[red].addEventListener("click", increaseScore)
+}
+setInterval(newMole, 1000)
 
-	function score() {
-		//let points = document.getElementsByTagName("b") 
-		//points.innerHTML = score++
-		//console.log(score)
-		let score = 0
-		displayScore(score+1)	
+
+// FONCTION LAPIN //
+function bunny() {
+	let circle = document.getElementsByTagName("div")
+
+	circle[black].style.backgroundColor = "black"
+
+	let white = Math.floor(Math.random() * circle.length)
+	circle[white].style.backgroundColor = "white"
+	black = white
+
+	function hidden() {
+		let circle = document.getElementsByTagName("div")
+		circle[black].style.backgroundColor = "black"
+	}
+
+	function displayScore(num) {
+		document.querySelector("b").innerHTML = num ;
 	}
 	
-	circle[randCircle].addEventListener("click", hidden)
-	circle[randCircle].addEventListener("click", score)
-	//console.log([randCircle])
+	function lowScore() {
+		score--;
+		displayScore(score)
+		console.log(score)	
+		
+	}
+	circle[white].addEventListener("click", hidden)
+	circle[black].addEventListener("click", lowScore)
 }
-
-setInterval(newMole, 1000)
+setInterval(bunny, 3000)
